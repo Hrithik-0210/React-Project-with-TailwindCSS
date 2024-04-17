@@ -46,7 +46,7 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="border">
-      <div className="search-container  mt-24 flex flex-row justify-center p-2 gap-4">
+      <div className="search-container my-1 flex flex-row justify-center p-2 gap-4">
         <input
           className="search-input border p-1 rounded-md w-1/3"
           type="text"
@@ -55,7 +55,7 @@ const Body = () => {
           onChange={(e) => setText(e.target.value)}
         />
         <button
-          className="search-btn bg-orange-600 text-white p-2 rounded-lg w-fit"
+          className="search-btn bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded-lg w-fit text-sm font-medium"
           onClick={() => {
             const data = filterRestaurant(allRestaurants, text);
             setFilterRestaurants(data);

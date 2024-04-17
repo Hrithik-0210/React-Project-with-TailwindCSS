@@ -1,4 +1,11 @@
+import React from "react";
+
 const Contact = () => {
-  return <h1>This is contact us page</h1>;
+  return (
+    <div>
+      <h1>Contact us page</h1>
+    </div>
+  );
 };
+
 export default Contact;
