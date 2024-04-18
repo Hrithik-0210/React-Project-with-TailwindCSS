@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import logo from "../assets/img/logo.png";
 import { Link } from "react-router-dom";
+import useOnline from "../utils/useOnline";
+import UserContext from "../utils/UserContext";
 
 const Title = () => {
   return (
@@ -23,31 +25,31 @@ const HeaderComponent = () => {
       <ul className="text-white">
         <Link
           to="/"
-          className=" p-3 m-3 transition ease-in-out delay-75 hover:scale-110 hover:border-b-2 hover:border-b-white  duration-150 ... "
+          className=" p-3 m-3 text-base font-semibold transition ease-in-out delay-75 hover:scale-110 hover:border-b-2 hover:border-b-white  duration-150 ... "
         >
           Home
         </Link>
         <Link
           to="/contact"
-          className=" p-3 m-3 transition ease-in-out delay-75 hover:scale-110 hover:border-b-2 hover:border-b-white  duration-150 ... "
+          className=" p-3 m-3 text-base font-semibold transition ease-in-out delay-75 hover:scale-110 hover:border-b-2 hover:border-b-white  duration-150 ... "
         >
           Contact
         </Link>
         <Link
           to="/about"
-          className=" p-3 m-3 transition ease-in-out delay-75 hover:scale-110 hover:border-b-2 hover:border-b-white  duration-150 ... "
+          className=" p-3 m-3 text-base font-semibold  transition ease-in-out delay-75 hover:scale-110 hover:border-b-2 hover:border-b-white  duration-150 ... "
         >
           About
         </Link>
         <Link
           to="/cart"
-          className="p-3 m-3 transition ease-in-out delay-75 hover:scale-110 hover:border-b-2 hover:border-b-white  duration-150 ...  "
+          className="p-3 m-3 text-base font-semibold transition ease-in-out delay-75 hover:scale-110 hover:border-b-2 hover:border-b-white  duration-150 ...  "
         >
           Cart
         </Link>
         <Link
           to="/instamart"
-          className="p-3 m-3 transition ease-in-out delay-75 hover:scale-110 hover:border-b-2 hover:border-b-white  duration-150 ... "
+          className="p-3 m-3 text-base font-semibold transition ease-in-out delay-75 hover:scale-110 hover:border-b-2 hover:border-b-white  duration-150 ... "
         >
           Instamart
         </Link>
@@ -58,20 +60,26 @@ const HeaderComponent = () => {
 
 const LoginLogout = () => {
   const [isLoggedin, setisLoggedIn] = useState(true);
+  const online = useOnline();
+  const { user } = useContext(UserContext);
   return (
-    <div className="login-logout-container flex items-center mr-5  border border-white text-white text-sm font-medium h-10 w-fit  px-3 rounded-lg transition ease-in-out delay-75  hover:-translate-y-1 hover:scale-105 duration-300 ...">
-      {isLoggedin ? (
-        <button className="logout-btn" onClick={() => setisLoggedIn(false)}>
-          Logout
-        </button>
-      ) : (
-        <Link to={"/login"}>
-          <button className="login-btn" onClick={() => setisLoggedIn(true)}>
-            Login
+    <>
+      <h2>{user.name}</h2>
+      <div className="login-logout-container flex items-center mr-5  border border-white text-white text-sm font-medium h-10 w-fit  px-3 rounded-lg transition ease-in-out delay-75  hover:-translate-y-1 hover:scale-105 duration-300 ...">
+        {isLoggedin ? (
+          <button className="logout-btn" onClick={() => setisLoggedIn(false)}>
+            Logout
           </button>
-        </Link>
-      )}
-    </div>
+        ) : (
+          <Link to={"/login"}>
+            <button className="login-btn" onClick={() => setisLoggedIn(true)}>
+              Login
+            </button>
+          </Link>
+        )}
+      </div>
+      {/* <h1>{online ? "online🟢" : "offline🔴"}</h1>; */}
+    </>
   );
 };
 const Header = () => {

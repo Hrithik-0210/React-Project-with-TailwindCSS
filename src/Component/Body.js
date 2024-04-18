@@ -1,15 +1,17 @@
-import { useEffect, useState } from "react";
+import { useCallback, useContext, useEffect, useState } from "react";
 import { restaurantDetails } from "../constants";
 import RestaurantCard from "./RestaurantCard";
 import { Shimmer } from "./Shimmer";
 import { Link } from "react-router-dom";
 import { filterRestaurant } from "../utils/helper";
 import useOnline from "../utils/useOnline.js";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   const [allRestaurants, setAllRestaurant] = useState([]);
   const [filterRestaurants, setFilterRestaurants] = useState([]);
   const [text, setText] = useState("");
+  const { user, setUser } = useContext(UserContext);
 
   useEffect(() => {
     console.log("useeffect called");
@@ -63,8 +65,16 @@ const Body = () => {
         >
           Search
         </button>
+        <input
+          className="border"
+          type="text"
+          value={user.name}
+          onChange={(e) =>
+            setUser({ name: e.target.value, email: "abc@gmail.com" })
+          }
+        />
       </div>
-      <div className="flex flex-wrap w-fit m-auto">
+      <div className="flex flex-wrap w-fit m-auto align-middle justify-center">
         {filterRestaurants.map((res) => {
           return (
             <Link
