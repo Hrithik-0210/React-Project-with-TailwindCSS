@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import logo from "../assets/img/logo.png";
-import { Link } from "react-router-dom";
+import { BrowserRouter, Link, NavLink } from "react-router-dom";
 import useOnline from "../utils/useOnline";
 import UserContext from "../utils/UserContext";
 
@@ -22,37 +22,67 @@ const Title = () => {
 const HeaderComponent = () => {
   return (
     <div className="flex w-auto items-center">
-      <ul className="text-white">
-        <Link
+      <ul className="">
+        <NavLink
           to="/"
-          className=" p-3 m-3 text-base font-semibold transition ease-in-out delay-75 hover:scale-110 hover:border-b-2 hover:border-b-white  duration-150 ... "
+          className={({ isActive }) =>
+            `p-3 m-3  ${
+              isActive
+                ? "text-black font-semibold  border-b border-b-black"
+                : "text-white text-base font-semibold  hover:text-gray-700"
+            } transition ease-in-out delay-75 hover:scale-110   duration-150`
+          }
         >
           Home
-        </Link>
-        <Link
+        </NavLink>
+        <NavLink
           to="/contact"
-          className=" p-3 m-3 text-base font-semibold transition ease-in-out delay-75 hover:scale-110 hover:border-b-2 hover:border-b-white  duration-150 ... "
+          className={({ isActive }) =>
+            `p-3 m-3  ${
+              isActive
+                ? "text-black font-semibold  border-b border-b-black"
+                : "text-white text-base font-semibold hover:text-gray-700"
+            } transition ease-in-out delay-75 hover:scale-110     duration-150`
+          }
         >
           Contact
-        </Link>
-        <Link
+        </NavLink>
+        <NavLink
           to="/about"
-          className=" p-3 m-3 text-base font-semibold  transition ease-in-out delay-75 hover:scale-110 hover:border-b-2 hover:border-b-white  duration-150 ... "
+          className={({ isActive }) =>
+            `p-3 m-3  ${
+              isActive
+                ? "text-black font-semibold  border-b border-b-black"
+                : "text-white text-base font-semibold hover:text-gray-700"
+            } transition ease-in-out delay-75 hover:scale-110   duration-150`
+          }
         >
           About
-        </Link>
-        <Link
+        </NavLink>
+        <NavLink
           to="/cart"
-          className="p-3 m-3 text-base font-semibold transition ease-in-out delay-75 hover:scale-110 hover:border-b-2 hover:border-b-white  duration-150 ...  "
+          className={({ isActive }) =>
+            `p-3 m-3 ${
+              isActive
+                ? "text-black font-semibold  border-b border-b-black"
+                : "text-white text-base font-semibold hover:text-gray-700"
+            }  transition ease-in-out delay-75 hover:scale-110   duration-150`
+          }
         >
           Cart
-        </Link>
-        <Link
+        </NavLink>
+        <NavLink
           to="/instamart"
-          className="p-3 m-3 text-base font-semibold transition ease-in-out delay-75 hover:scale-110 hover:border-b-2 hover:border-b-white  duration-150 ... "
+          className={({ isActive }) =>
+            `p-3 m-3 ${
+              isActive
+                ? "text-black font-semibold  border-b border-b-black"
+                : "text-white text-base font-semibold hover:text-gray-700"
+            } transition ease-in-out delay-75 hover:scale-110   duration-150 `
+          }
         >
           Instamart
-        </Link>
+        </NavLink>
       </ul>
     </div>
   );
