@@ -5,8 +5,8 @@ import { addItems } from "../utils/cartSlice";
 const RestaurantRecomendations = ({ id, name, description }) => {
   const dispatch = useDispatch();
 
-  const addItem = (id, name, description) => {
-    dispatch(addItems(id, name, description));
+  const addItem = ({ id, name, description }) => {
+    dispatch(addItems({ id, name, description }));
     console.log("dispatch from recomended component");
   };
   return (
@@ -18,7 +18,7 @@ const RestaurantRecomendations = ({ id, name, description }) => {
       </div>
       <button
         className="bg-green-300"
-        onClick={() => addItem(id, name, description)}
+        onClick={() => addItem({ id, name, description })}
       >
         Add Item
       </button>

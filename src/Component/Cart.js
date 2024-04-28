@@ -10,7 +10,7 @@ const Cart = () => {
   return (
     <>
       <h1>Cart - {cartItems.length}</h1>
-      <RestaurantRecomendations />
+      <RestaurantRecomendations {...cartItems.id} />
     </>
   );
 };
