@@ -7,10 +7,12 @@ import RestaurantMenu from "./RestaurantMenu";
 const Cart = () => {
   const cartItems = useSelector((store) => store.cart.items);
 
+  console.log("cartpage");
+  console.log(cartItems[0].id);
   return (
     <>
       <h1>Cart - {cartItems.length}</h1>
-      <RestaurantRecomendations {...cartItems.id} />
+      <RestaurantRecomendations {...cartItems[0]} />
     </>
   );
 };
