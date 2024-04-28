@@ -3,6 +3,8 @@ import logo from "../assets/img/logo.png";
 import { BrowserRouter, Link, NavLink } from "react-router-dom";
 import useOnline from "../utils/useOnline";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
+import store from "../utils/store";
 
 const Title = () => {
   return (
@@ -20,6 +22,8 @@ const Title = () => {
 };
 
 const HeaderComponent = () => {
+  const cartItems = useSelector((store) => store.cart.items);
+  console.log(cartItems);
   return (
     <div className="flex w-auto items-center">
       <ul className="">
@@ -59,18 +63,7 @@ const HeaderComponent = () => {
         >
           About
         </NavLink>
-        <NavLink
-          to="/cart"
-          className={({ isActive }) =>
-            `p-3 m-3 ${
-              isActive
-                ? "text-black font-semibold  border-b border-b-black"
-                : "text-white text-base font-semibold hover:text-gray-700"
-            }  transition ease-in-out delay-75 hover:scale-110   duration-150`
-          }
-        >
-          Cart
-        </NavLink>
+
         <NavLink
           to="/instamart"
           className={({ isActive }) =>
@@ -82,6 +75,18 @@ const HeaderComponent = () => {
           }
         >
           Instamart
+        </NavLink>
+        <NavLink
+          to="/cart"
+          className={({ isActive }) =>
+            `p-3 m-3 ${
+              isActive
+                ? "text-black font-semibold  border-b border-b-black"
+                : "text-white text-base font-semibold hover:text-gray-700"
+            }  transition ease-in-out delay-75 hover:scale-110   duration-150`
+          }
+        >
+          Cart -{cartItems.length}
         </NavLink>
       </ul>
     </div>

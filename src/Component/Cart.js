@@ -1,4 +1,21 @@
+// import React from "react";
+import { useSelector } from "react-redux";
+import RestaurantRecomendations from "./RestaurantRecomendations";
+import RestaurantMenu from "./RestaurantMenu";
+// import { useRestaurantRecomendation } from "../utils/useRestaurant";
+
 const Cart = () => {
-  return <h1>This is cart page</h1>;
+  const cartItems = useSelector((store) => store.cart.items);
+
+  return (
+    <>
+      <h1>Cart - {cartItems.length}</h1>
+      <RestaurantRecomendations />
+    </>
+  );
 };
 export default Cart;
+
+{
+  /* <RestaurantRecomendations {...item[1]} /> */
+}

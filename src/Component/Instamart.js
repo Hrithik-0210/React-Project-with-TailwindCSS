@@ -18,7 +18,7 @@ const Section = ({ title, description, isVisible, setIsVisible, key }) => {
         ) : (
           <button
             onClick={() => {
-              setIsVisible(true);
+              setIsVisible(true); 
             }}
             className="w-fit p-1 rounded-md"
           >
