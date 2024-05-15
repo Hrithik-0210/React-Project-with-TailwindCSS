@@ -32,11 +32,19 @@ export const useRestaurantRecomendation = (id) => {
     );
     const jsonData = await data.json();
     console.log(jsonData);
-    setRestaurantRecomendation(
-      jsonData.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards[7].card.card.itemCards.map(
-        (item) => item.card
-      )
-    );
+
+    if (
+      jsonData?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[7]
+        ?.card?.card?.itemCards
+    ) {
+      setRestaurantRecomendation(
+        jsonData?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[7]?.card?.card?.itemCards.map(
+          (item) => item.card
+        )
+      );
+    } else {
+      console.log("nhi hai ");
+    }
   }
 
   console.log(restaurantRecomendation);
