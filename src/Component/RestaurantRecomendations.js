@@ -12,7 +12,7 @@ const RestaurantRecomendations = ({ id, name, description, imageId }) => {
   };
 
   const removeItems = ({ id, name, description, imageId }) => {
-    dispatch(removeItem({ id, name, description, imageId }));
+    dispatch(removeItem(id));
   };
   return (
     <>

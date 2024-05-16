@@ -30,14 +30,6 @@ const RestaurantMenu = () => {
     <>
       <div className="Restaurant-Menu-container border w-full p-3 m-auto flex items-center justify-center">
         <div className="restaurant-menu -card w-1/2 p-3 h-full shadow-2xl rounded-lg  flex justify-between">
-          {/* <div className="res-menu-image-container rounded-lg  h-56">
-            <img
-              src={IMG_CDN_URL + restaurant.cloudinaryImageId}
-              alt=""
-              className="res-menu-img rounded-lg h-full w-full"
-            />
-          </div> */}
-
           <div className="res-menu-card-details h-1/2">
             {/* <h1>Restaurants id: {restaurant.id}</h1> */}
             <div className="res-menu-card-name my-1">
@@ -65,12 +57,6 @@ const RestaurantMenu = () => {
               className="res-menu-img rounded-lg h-full w-full"
             />
           </div>
-          {/* <button
-            className="bg-orange-500 w-full rounded-md my-1 p-2 text-sm text-white font-medium"
-            onClick={() => handleAddItem()}
-          >
-            Add to Cart
-          </button> */}
         </div>
       </div>
       <div>
@@ -85,6 +71,8 @@ const RestaurantMenu = () => {
             </div>
             <div className=" flex flex-wrap  justify-center">
               {restaurantRecomendation.map((resRec) => {
+                console.log("rest-recomendation....");
+                console.log(resRec);
                 return !resRec ? (
                   <Shimmer />
                 ) : (
