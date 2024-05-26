@@ -10,6 +10,7 @@ const Title = () => {
   return (
     <div className="flex  w-auto  justify-center  items-center my-2">
       <img
+        data-testid="Logo"
         src={logo}
         alt="logoImg"
         className="h-14 w-14 border-none rounded-full mx-3"
@@ -113,7 +114,7 @@ const LoginLogout = () => {
           </Link>
         )}
       </div>
-      {/* <h1>{online ? "online🟢" : "offline🔴"}</h1>; */}
+      <h1>{online ? "✅" : "🔴"}</h1>;
     </>
   );
 };
@@ -126,4 +127,5 @@ const Header = () => {
     </div>
   );
 };
+
 export default Header;
