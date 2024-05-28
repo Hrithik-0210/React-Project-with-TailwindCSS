@@ -63,7 +63,7 @@ const RestaurantMenu = () => {
         {!restaurantRecomendation ? (
           <ShimmerRestaurantMenu />
         ) : (
-          <div className=" mt-8">
+          <div data-testid="recommend" className=" mt-8">
             <div>
               <h2 className="text-lg font-semibold text-gray-600 text-center justify-center">
                 Recommended

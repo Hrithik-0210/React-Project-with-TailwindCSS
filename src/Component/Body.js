@@ -51,6 +51,7 @@ const Body = () => {
     <div className="border">
       <div className="search-container my-1 flex flex-row justify-center p-2 gap-4">
         <input
+          data-testid="search-input"
           className="search-input border p-1 rounded-md w-1/3"
           type="text"
           value={text}
@@ -58,6 +59,7 @@ const Body = () => {
           onChange={(e) => setText(e.target.value)}
         />
         <button
+          data-testid="search-btn"
           className="search-btn bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded-lg w-fit text-sm font-medium"
           onClick={() => {
             const data = filterRestaurant(allRestaurants, text);
@@ -75,7 +77,10 @@ const Body = () => {
           }
         />
       </div>
-      <div className="flex flex-wrap w-fit m-auto align-middle justify-center">
+      <div
+        data-testid="res-list"
+        className="flex flex-wrap w-fit m-auto align-middle justify-center"
+      >
         {filterRestaurants.map((res) => {
           return (
             <Link

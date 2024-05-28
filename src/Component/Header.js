@@ -78,6 +78,7 @@ const HeaderComponent = () => {
           Instamart
         </NavLink>
         <NavLink
+          data-testid="cart-count"
           to="/cart"
           className={({ isActive }) =>
             `p-3 m-3 ${
@@ -87,7 +88,7 @@ const HeaderComponent = () => {
             }  transition ease-in-out delay-75 hover:scale-110   duration-150`
           }
         >
-          Cart -{cartItems.length}
+          Cart -{cartItems.length} items
         </NavLink>
       </ul>
     </div>
@@ -114,7 +115,7 @@ const LoginLogout = () => {
           </Link>
         )}
       </div>
-      <h1>{online ? "✅" : "🔴"}</h1>;
+      <h1 data-testid="online-status">{online ? "✅" : "🔴"}</h1>;
     </>
   );
 };

@@ -16,7 +16,10 @@ const RestaurantRecomendations = ({ id, name, description, imageId }) => {
   };
   return (
     <>
-      <div className="Restaurant-Menu-container  w-fit p-3 m-2 flex  flex-col">
+      <div
+        data-testid="recommend"
+        className="Restaurant-Menu-container  w-fit p-3 m-2 flex  flex-col"
+      >
         <div className="restaurant-menu -card w-80 p-3 h-full shadow-2xl rounded-lg ">
           <div className="res-menu-image-container rounded-lg  h-56">
             <img
@@ -39,6 +42,7 @@ const RestaurantRecomendations = ({ id, name, description, imageId }) => {
         </div>
         <div className="flex  m-2">
           <button
+            data-testid="add-btn"
             className="bg-green-800 text-white py-2 px-8 rounded-lg mx-3"
             onClick={() => addItem({ id, name, description, imageId })}
           >

@@ -1,6 +1,6 @@
 export const Shimmer = () => {
   return (
-    <div className="flex flex-row flex-wrap gap-4 mx-3  ">
+    <div data-testid="shimmer" className="flex flex-row flex-wrap gap-4 mx-3  ">
       {console.log("shimmer loading")}
 
       {Array(12)

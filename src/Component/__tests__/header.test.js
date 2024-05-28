@@ -14,6 +14,34 @@ test("logo sould load on rednerind header", () => {
   );
 
   const logo = header.getAllByTestId("Logo");
+  expect(logo[0].src).toBe("http://localhost/dummy.png");
+  // console.log(logo[0]);
+});
 
-  console.log(logo);
+test("Online status should be green on rednerind header", () => {
+  const header = render(
+    <StaticRouter>
+      <Provider store={store}>
+        <Header />
+      </Provider>
+    </StaticRouter>
+  );
+
+  const onlineStatus = header.getByTestId("online-status");
+  expect(onlineStatus.innerHTML).toBe("✅");
+  // console.log(onlineStatus.innerHTML);
+});
+
+test("cart should have 0 items", () => {
+  const header = render(
+    <StaticRouter>
+      <Provider store={store}>
+        <Header />
+      </Provider>
+    </StaticRouter>
+  );
+
+  const cart = header.getByTestId("cart-count");
+  // console.log(cart.innerHTML);
+  expect(cart.innerHTML).toBe("Cart -0 items");
 });
